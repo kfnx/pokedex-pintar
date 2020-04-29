@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
+import SpinningPokeball from "../../components/SpinningPokeball";
 import { PokemonList } from "../../query/PokemonList";
 
 export default function Home(): React.Node {
@@ -9,5 +10,10 @@ export default function Home(): React.Node {
       first: 15,
     },
   });
-  return <div>Pokedex {JSON.stringify(data)}</div>;
+  return (
+    <div>
+      <h2>Pokedex</h2> {JSON.stringify(data)}
+      {loading && <SpinningPokeball />}
+    </div>
+  );
 }
