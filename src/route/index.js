@@ -12,7 +12,7 @@ export default function Router(): React.Node {
     <BrowserRouter>
       <React.Suspense fallback={<SpinningPokeball fullscreen />}>
         <Switch>
-          <Route exact path={"/"} component={Home} />
+          <Route exact path={["/", "/filter/:filter"]} component={Home} />
           <Route exact path="/detail/:name" component={Detail} />
           <Route component={Error} />
         </Switch>

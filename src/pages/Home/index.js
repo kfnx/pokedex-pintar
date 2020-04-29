@@ -1,15 +1,18 @@
 // @flow
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import SpinningPokeball from "../../components/SpinningPokeball";
+import { useParams } from "react-router-dom";
 import { PokemonList } from "../../query/PokemonList";
 import PokemonCards from "./PokemonCards";
 import Error from "../../components/Error";
+import SpinningPokeball from "../../components/SpinningPokeball";
+import PokemonTypesFilter from "../../components/PokemonTypesFilter";
 
 export default function Home(): React.Node {
   const [variables, setVariables] = React.useState({
     first: 18,
   });
+
   const { loading, error, data, fetchMore } = useQuery(PokemonList, {
     variables,
   });
@@ -42,13 +45,28 @@ export default function Home(): React.Node {
   const pokemonsFetched = data ? data.pokemons : [];
   const limitExceed = pokemonsFetched.length > 150; // our graphql api has limit
 
+  const [displayFilter, setDisplayFilter] = React.useState(false);
+  const closeFilter = () => {
+    setDisplayFilter(false);
+  };
+  const openFilter = () => {
+    setDisplayFilter(true);
+  };
+
+  const { filter } = useParams();
+  const filterArray = filter ? filter.split("&") : [];
+
   if (error) return <Error />;
 
   return (
-    <div>
-      <h2>Pokédex Pintar</h2>
-      <PokemonCards pokemons={pokemonsFetched} />
-      {!limitExceed && <SpinningPokeball />}
-    </div>
+    <React.Fragment>
+      <h2>
+        Pokédex Pintar <button onClick={openFilter}>filter type</button>
+      </h2>
+      {filter && JSON.stringify(filter)}
+      <PokemonCards pokemons={pokemonsFetched} filter={filterArray} />
+      {(loading || !limitExceed) && <SpinningPokeball />}
+      <PokemonTypesFilter display={displayFilter} onClose={closeFilter} />
+    </React.Fragment>
   );
 }

@@ -57,21 +57,50 @@ const Description = styled.div`
   align-self: flex-end;
 `;
 
-export default function PokemonCards({ pokemons }) {
+function PokemonCard({ pokemon }) {
+  return (
+    <Card to={`/detail/${pokemon.name}`}>
+      <ImageContainer>
+        <img src={pokemon.image} width="100%" alt={pokemon.name} />
+      </ImageContainer>
+      <Description>
+        <Name>{pokemon.name}</Name>
+        <Classification>{pokemon.classification}</Classification>
+        <p>{pokemon.types.join(", ")}</p>
+      </Description>
+    </Card>
+  );
+}
+
+// type Props = {
+//   pokemons: Array<any>,
+//   filter: Array<any>,
+// };
+
+export default function PokemonCards({ pokemons, filter }): React.Node {
   return (
     <CardListContainer>
-      {pokemons.map((pokemon) => (
-        <Card key={pokemon.id} to={`/detail/${pokemon.name}`}>
-          <ImageContainer>
-            <img src={pokemon.image} width="100%" alt={pokemon.name} />
-          </ImageContainer>
-          <Description>
-            <Name>{pokemon.name}</Name>
-            <Classification>{pokemon.classification}</Classification>
-            <p>{pokemon.types.join(", ")}</p>
-          </Description>
-        </Card>
-      ))}
+      {filter.length > 0
+        ? pokemons.map(
+            (pokemon) =>
+              filter.some((item) => pokemon.types.includes(item)) && (
+                <PokemonCard pokemon={pokemon} key={pokemon.id} />
+              )
+          )
+        : pokemons.map((pokemon) => (
+            <PokemonCard pokemon={pokemon} key={pokemon.id} />
+          ))}
+      {/* {pokemons.map((pokemon) => {
+        if (filter.length > 0) {
+          if (filter.some((item) => pokemon.types.includes(item))) {
+            return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
+          } else {
+            return null;
+          }
+        } else {
+          return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
+        }
+      })} */}
     </CardListContainer>
   );
 }
