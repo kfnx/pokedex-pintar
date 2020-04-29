@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import Pokeball from "../../pokeball-icon.svg";
 
 const rotate = keyframes`
@@ -15,23 +15,34 @@ const rotate = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  height: 64px;
+  height: 96px;
   text-align: center;
-  margin: 16px auto;
+  ${(props) =>
+    props.fullscreen
+      ? css`
+          margin: 300px auto 16px auto;
+        `
+      : css`
+          margin: 16px auto;
+        `}
 `;
 
 const SpinningPokeball = styled.img`
-  height: 64px;
-  width: 64px;
+  height: 96px;
+  width: 96px;
   margin: auto;
   transition: all 0.35s ease-in-out;
   animation: ${rotate} 1s linear infinite;
   opacity: 0.6;
 `;
 
-export default function (): React.Node {
+type Props = {
+  fullscreen: boolean,
+};
+
+export default function ({ fullscreen }: Props): React.Node {
   return (
-    <Container>
+    <Container fullscreen={fullscreen}>
       <SpinningPokeball src={Pokeball} />
     </Container>
   );

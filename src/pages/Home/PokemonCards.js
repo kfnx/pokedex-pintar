@@ -57,7 +57,7 @@ const Description = styled.div`
   align-self: flex-end;
 `;
 
-export default function ListPokemons({ pokemons }) {
+export default function PokemonCards({ pokemons }) {
   return (
     <CardListContainer>
       {pokemons.map((pokemon) => (

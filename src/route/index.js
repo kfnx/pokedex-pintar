@@ -1,18 +1,20 @@
 // @flow
 import * as React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import Detail from "../pages/Detail";
 import SpinningPokeball from "../components/SpinningPokeball";
+import Error from "../components/Error";
+
+const Home = React.lazy(() => import("../pages/Home"));
+const Detail = React.lazy(() => import("../pages/Detail"));
 
 export default function Router(): React.Node {
   return (
     <BrowserRouter>
-      <React.Suspense fallback={<SpinningPokeball />}>
+      <React.Suspense fallback={<SpinningPokeball fullscreen />}>
         <Switch>
           <Route exact path={"/"} component={Home} />
           <Route exact path="/detail/:name" component={Detail} />
-          <Route component={() => <h1>not found</h1>} />
+          <Route component={Error} />
         </Switch>
       </React.Suspense>
     </BrowserRouter>
