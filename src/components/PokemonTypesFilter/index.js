@@ -19,7 +19,7 @@ const Container = styled.div`
   background-color: ${YELLOW_WARUNG};
   text-align: center;
   color: ${DARK_SLATE_GRAY};
-  line-height: 2.5em;
+  line-height: 2em;
   transition: all 0.4s ease-in-out;
 `;
 
@@ -27,7 +27,7 @@ const CloseButton = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
-  font-size: 3em;
+  font-size: 2em;
   cursor: pointer;
 `;
 
@@ -40,6 +40,7 @@ const TypeListContainer = styled.ul`
 
 const Type = styled.li`
   width: 30%;
+  font-size: 0.9em;
   &:nth-child(even) {
     margin-right: 20%;
   }
@@ -68,11 +69,10 @@ const SuggestionSentence = styled.p`
 `;
 
 const ActionButton = styled(Link)`
-  margin-top: 16px;
+  margin-top: 12px;
   background-color: transparent;
   border-radius: 8px;
-  padding: 8px 24px;
-  font-size: 1.4em;
+  padding: 6px 24px;
   text-decoration: none;
   color: ${DARK_SLATE_GRAY};
   border: 2px solid ${DARK_SLATE_GRAY};

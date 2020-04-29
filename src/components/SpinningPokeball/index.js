@@ -20,7 +20,7 @@ const Container = styled.div`
   ${(props) =>
     props.fullscreen
       ? css`
-          margin: 300px auto 16px auto;
+          margin: 250px auto 16px auto;
         `
       : css`
           margin: 16px auto;
