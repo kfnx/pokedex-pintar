@@ -22,7 +22,7 @@ const EvolutionCard = styled.div`
   padding: 16px;
   margin: 16px;
   @media (max-width: 768px) {
-    margin: 16px 32px;
+    margin: 16px 22px;
   }
 `;
 
