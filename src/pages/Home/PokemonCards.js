@@ -57,7 +57,11 @@ const Description = styled.div`
   align-self: flex-end;
 `;
 
-function PokemonCard({ pokemon }) {
+type PokemonProps = {
+  pokemon: Object,
+};
+
+function PokemonCard({ pokemon }: PokemonProps): React.Node {
   return (
     <Card to={`/detail/${pokemon.name}`}>
       <ImageContainer>
@@ -72,12 +76,15 @@ function PokemonCard({ pokemon }) {
   );
 }
 
-// type Props = {
-//   pokemons: Array<any>,
-//   filter: Array<any>,
-// };
+type PokemonCardProps = {
+  pokemons: Array<any>,
+  filter: Array<any>,
+};
 
-export default function PokemonCards({ pokemons, filter }): React.Node {
+export default function PokemonCards({
+  pokemons,
+  filter,
+}: PokemonCardProps): React.Node {
   return (
     <CardListContainer>
       {filter.length > 0
@@ -90,17 +97,6 @@ export default function PokemonCards({ pokemons, filter }): React.Node {
         : pokemons.map((pokemon) => (
             <PokemonCard pokemon={pokemon} key={pokemon.id} />
           ))}
-      {/* {pokemons.map((pokemon) => {
-        if (filter.length > 0) {
-          if (filter.some((item) => pokemon.types.includes(item))) {
-            return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
-          } else {
-            return null;
-          }
-        } else {
-          return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
-        }
-      })} */}
     </CardListContainer>
   );
 }
