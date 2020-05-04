@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  top: ${(props) => (props.display === "true" ? "0px" : "-2500px")};
+  top: ${(props) => (props.show ? "0px" : "-2500px")};
   left: 0px;
   z-index: 999;
   height: 100%;
@@ -118,7 +118,7 @@ export default function ({ display, onClose }: Props): React.Node {
   };
 
   return (
-    <Container display={display.toString()}>
+    <Container show={display}>
       <CloseButton onClick={onClose}>&#120;</CloseButton>
       <SuggestionSentence>Select pokémon types to filter</SuggestionSentence>
       <TypeListContainer>

@@ -15,7 +15,7 @@ const HomeLink = styled(Link)`
   font-size: 1.2em;
 `;
 
-export default function (): React.Node {
+export default function Error(): React.Node {
   return (
     <Container>
       <p>Oops, something went wrong!</p>

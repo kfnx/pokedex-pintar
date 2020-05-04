@@ -27,7 +27,7 @@ const Container = styled.div`
         `}
 `;
 
-const SpinningPokeball = styled.img`
+const AnimatedPokeball = styled.img`
   height: 96px;
   width: 96px;
   margin: auto;
@@ -40,10 +40,10 @@ type Props = {
   fullscreen: boolean,
 };
 
-export default function ({ fullscreen }: Props): React.Node {
+export default function SpinningPokeball({ fullscreen }: Props): React.Node {
   return (
     <Container fullscreen={fullscreen}>
-      <SpinningPokeball src={Pokeball} />
+      <AnimatedPokeball src={Pokeball} />
     </Container>
   );
 }
