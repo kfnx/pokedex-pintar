@@ -12,6 +12,9 @@ export default function Detail(): React.Node {
 
   React.useEffect(() => {
     document.title = `${name} | Pokédex`;
+    return () => {
+      document.title = `Pokédex Pintar`;
+    };
   }, [name]);
 
   const { loading, error, data = {} } = useQuery(PokemonDetail, {
