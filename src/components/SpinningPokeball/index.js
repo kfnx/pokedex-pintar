@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
+import { motion } from "framer-motion";
 import Pokeball from "../../pokeball-icon.svg";
 
 const rotate = keyframes`
@@ -13,7 +14,7 @@ const rotate = keyframes`
   }
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100%;
   height: 96px;
   text-align: center;
@@ -42,7 +43,12 @@ type Props = {
 
 export default function SpinningPokeball({ fullscreen }: Props): React.Node {
   return (
-    <Container fullscreen={fullscreen}>
+    <Container
+      fullscreen={fullscreen}
+      initial={{ scale: 0, opacity: 0.5 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
       <AnimatedPokeball src={Pokeball} />
     </Container>
   );

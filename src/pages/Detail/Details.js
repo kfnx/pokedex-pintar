@@ -1,11 +1,13 @@
 // @flow
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import Evolutions from "./Evolutions";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 80%;
   margin: 16px auto;
+  overflow-x: hidden;
 `;
 
 const Name = styled.h1`
@@ -84,7 +86,11 @@ export default function PokemonDetail({ data }): React.Node {
   } = data;
 
   return (
-    <Container>
+    <Container
+      initial={{ x: -2000, opacity: 0.5 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
       <Name>{name}</Name>
       <Classification>{classification}</Classification>
       <FlexContent>

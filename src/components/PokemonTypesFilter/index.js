@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { YELLOW_WARUNG, DARK_SLATE_GRAY } from "../../constants/colors";
 import POKEMON_TYPES from "../../constants/pokemonTypes";
 
@@ -69,15 +70,12 @@ const SuggestionSentence = styled.p`
 `;
 
 const ActionButton = styled(Link)`
-  margin-top: 12px;
-  background-color: transparent;
   border-radius: 8px;
   padding: 6px 24px;
   text-decoration: none;
   color: ${DARK_SLATE_GRAY};
   border: 2px solid ${DARK_SLATE_GRAY};
   cursor: pointer;
-  transition: all 0.35 ease-in-out;
   &:hover {
     background-color: ${DARK_SLATE_GRAY};
     color: ${YELLOW_WARUNG};
@@ -117,6 +115,16 @@ export default function ({ display, onClose }: Props): React.Node {
     selectFilter([]);
   };
 
+  const Motion = ({ children }) => (
+    <motion.div
+      whileHover={{ scale: 1.1, transition: { duration: 0.25 } }}
+      whileTap={{ scale: 0.9 }}
+      style={{ margin: "8px" }}
+    >
+      {children}
+    </motion.div>
+  );
+
   return (
     <Container show={display}>
       <CloseButton onClick={onClose}>&#120;</CloseButton>
@@ -132,12 +140,16 @@ export default function ({ display, onClose }: Props): React.Node {
           </Type>
         ))}
       </TypeListContainer>
-      <ActionButton to={filterUrl} onClick={handleClickFilter}>
-        Filter
-      </ActionButton>
-      <ActionButton to="/" onClick={handleClickClear}>
-        Clear
-      </ActionButton>
+      <Motion>
+        <ActionButton to={filterUrl} onClick={handleClickFilter}>
+          Filter
+        </ActionButton>
+      </Motion>
+      <Motion>
+        <ActionButton to="/" onClick={handleClickClear}>
+          Clear
+        </ActionButton>
+      </Motion>
     </Container>
   );
 }

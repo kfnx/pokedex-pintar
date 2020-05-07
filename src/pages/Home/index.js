@@ -6,7 +6,7 @@ import { PokemonList } from "../../query/PokemonList";
 import Error from "../../components/Error";
 import SpinningPokeball from "../../components/SpinningPokeball";
 import PokemonTypesFilter from "../../components/PokemonTypesFilter";
-import PokemonCards from "./PokemonCards";
+import PokemonCardLists from "./PokemonCardLists";
 import HeadBar from "./HeadBar";
 
 export default function Home(): React.Node {
@@ -87,7 +87,7 @@ export default function Home(): React.Node {
   return (
     <React.Fragment>
       <HeadBar openFilter={openFilter} activeFilters={filterArray} />
-      <PokemonCards pokemons={pokemonsFetched} filter={filterArray} />
+      <PokemonCardLists pokemons={pokemonsFetched} filter={filterArray} />
       {(loading || !limitExceed) && <SpinningPokeball />}
       <PokemonTypesFilter display={displayFilter} onClose={closeFilter} />
     </React.Fragment>
