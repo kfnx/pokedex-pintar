@@ -66,7 +66,7 @@ export default function PokemonCard({ pokemon }: PokemonProps): React.Node {
         stiffness: 260,
         damping: 20,
       }}
-      whileHover={{ scale: 1.1, transition: { duration: 0.25 } }}
+      whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
       whileTap={{ scale: 0.9 }}
     >
       <Card to={`/detail/${pokemon.name}`}>

@@ -85,11 +85,11 @@ const ActionButton = styled(Link)`
 type Props = {
   display: boolean,
   onClose: Function,
+  filters: Array<string>
 };
 
-export default function ({ display, onClose }: Props): React.Node {
-  const [selectedFilters, selectFilter] = useState([]);
-
+export default function ({ display, onClose, filters }: Props): React.Node {
+  const [selectedFilters, selectFilter] = useState(filters ? filters : []);
   const handleSetFilter = (type) => {
     if (selectedFilters.includes(type)) {
       selectFilter(selectedFilters.filter((item) => item !== type));

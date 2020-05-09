@@ -14,19 +14,19 @@ const CardListContainer = styled.div`
 
 type PokemonCardProps = {
   pokemons: Array<any>,
-  filter: Array<any>,
+  filters: Array<any>,
 };
 
 export default function PokemonCardLists({
   pokemons,
-  filter,
+  filters,
 }: PokemonCardProps): React.Node {
   return (
     <CardListContainer>
-      {filter.length > 0
+      {filters.length > 0
         ? pokemons.map(
             (pokemon) =>
-              filter.some((item) => pokemon.types.includes(item)) && (
+              filters.some((item) => pokemon.types.includes(item)) && (
                 <PokemonCard pokemon={pokemon} key={pokemon.id} />
               )
           )

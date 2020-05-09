@@ -86,10 +86,14 @@ export default function Home(): React.Node {
 
   return (
     <React.Fragment>
-      <HeadBar openFilter={openFilter} activeFilters={filterArray} />
-      <PokemonCardLists pokemons={pokemonsFetched} filter={filterArray} />
+      <HeadBar openFilter={openFilter} filters={filterArray} />
+      <PokemonCardLists pokemons={pokemonsFetched} filters={filterArray} />
       {(loading || !limitExceed) && <SpinningPokeball />}
-      <PokemonTypesFilter display={displayFilter} onClose={closeFilter} />
+      <PokemonTypesFilter
+        display={displayFilter}
+        onClose={closeFilter}
+        filters={filterArray}
+      />
     </React.Fragment>
   );
 }

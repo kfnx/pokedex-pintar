@@ -25,12 +25,12 @@ const FilterButton = styled.button`
 `;
 
 type Props = {
-  activeFilters: Array<string>,
+  filters: Array<string>,
   openFilter: Function,
 };
 
 export default function HeadBar({
-  activeFilters,
+  filters,
   openFilter,
 }: Props): React.Node {
   return (
@@ -39,8 +39,8 @@ export default function HeadBar({
         <h3>Pokédex Pintar</h3>
         <FilterButton onClick={openFilter}>FILTER</FilterButton>
       </Header>
-      {activeFilters.length > 0 && (
-        <ActiveFilters>filter : {activeFilters.join(", ")}</ActiveFilters>
+      {filters.length > 0 && (
+        <ActiveFilters>filter : {filters.join(", ")}</ActiveFilters>
       )}
     </React.Fragment>
   );
