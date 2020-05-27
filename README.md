@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/kafinsalim/pokedex-pintar/tree/master.svg?style=svg)](https://circleci.com/gh//kafinsalim/pokedex-pintar/tree/master)
+
 ## Live Demo
 
 You can see live demo here https://pokedex-pintar.now.sh
