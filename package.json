@@ -5,7 +5,7 @@
   "dependencies": {
     "@apollo/react-hooks": "3.1.5",
     "@testing-library/jest-dom": "5.10.1",
-    "@testing-library/react": "10.2.1",
+    "@testing-library/react": "10.3.0",
     "@testing-library/user-event": "11.4.2",
     "apollo-boost": "0.4.9",
     "framer-motion": "1.11.0",
