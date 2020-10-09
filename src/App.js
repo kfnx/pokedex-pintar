@@ -5,7 +5,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import Router from "./route";
 
 const client = new ApolloClient({
-  uri: "https://graphql-pokemon.now.sh",
+  uri: "https://graphql-pokemon2.vercel.app",
 });
 
 function App(): React.Node {
