@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { YELLOW_WARUNG } from "../../constants/colors.js";
+import { YELLOW_WARUNG, SLATE_GRAY_CONTRAST } from "../../constants/colors.js";
 
 const Card = styled(Link)`
   display: flex;
@@ -44,7 +44,7 @@ const Name = styled.p`
 `;
 
 const Classification = styled.p`
-  color: slategray;
+  color: ${SLATE_GRAY_CONTRAST};
   margin: 0px auto;
 `;
 

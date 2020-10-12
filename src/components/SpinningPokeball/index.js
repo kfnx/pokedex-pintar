@@ -49,7 +49,7 @@ export default function SpinningPokeball({ fullscreen }: Props): React.Node {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
-      <AnimatedPokeball src={Pokeball} />
+      <AnimatedPokeball src={Pokeball} alt={"Animated Pokeball"} />
     </Container>
   );
 }
