@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { YELLOW_WARUNG } from "../../constants/colors";
+import { YELLOW_DARK_CONTRAST } from "../../constants/colors";
 
 const ActiveFilters = styled.p`
   margin: 8px 5%;
@@ -19,9 +19,10 @@ const FilterButton = styled.button`
   border: 0px;
   background: transparent;
   padding: 0px;
-  color: ${YELLOW_WARUNG};
+  color: ${YELLOW_DARK_CONTRAST};
   font-size: 1.2em;
   cursor: pointer;
+  font-weight:800;
 `;
 
 type Props = {
