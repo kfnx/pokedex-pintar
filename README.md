@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/kafinsalim/pokedex-pintar/tree/master.svg?style=svg)](https://circleci.com/gh//kafinsalim/pokedex-pintar/tree/master)
-
+[![codecov](https://codecov.io/gh/kafinsalim/pokedex-pintar/branch/master/graph/badge.svg?token=2R13ET5R6O)](https://codecov.io/gh/kafinsalim/pokedex-pintar)
 ## Live Demo
 
 You can see live demo here https://pokedex-pintar.now.sh
